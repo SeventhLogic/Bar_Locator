@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Bar_Locator</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="Address">Address:</string>
+    <string name="City">City:</string>
+    <string name="State">State:</string>
     <string name="action_settings">Settings</string>
 </resources>
