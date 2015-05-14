@@ -1,9 +1,11 @@
 package com.example.jen.bar_locator;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends Activity {
@@ -14,11 +16,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    protected void  testTest()
-    {
-        //this is a test
-    }
+    public void goToHomePage (View view){
+        Intent intent = new Intent(this, Manual_Search.class);
+        startActivity(intent);
+        this.isDestroyed();
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
