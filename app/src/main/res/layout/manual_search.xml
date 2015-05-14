@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00A0E9">
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/manualContentLayout">
+
+        <!-- This area is for the Address label and text field-->
+        <TextView
+
+            android:id="@+id/addressLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Address"
+            android:textSize="24dp"
+            android:layout_marginTop="100dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"        />
+
+        <EditText
+
+            android:id="@+id/addressTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@id/addressLbl"
+            android:textColor="#FFFFFF"
+            android:inputType="textAutoCorrect"        />
+        <!-- This is the end of the Address label and text field-->
+
+        <!-- This is the start of the city label and text field-->
+        <TextView
+
+            android:id="@+id/cityLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/City"
+            android:textSize="24dp"
+            android:layout_marginTop="212dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"        />
+
+
+        <EditText
+
+            android:id="@+id/cityTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@id/cityLbl"
+            android:textColor="#FFFFFF"
+            android:inputType="textAutoCorrect"        />
+        <!-- This is the end of the city label and text field-->
+
+        <!-- This is the start of the state label and text field-->
+        <TextView
+
+            android:id="@+id/stateLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/State"
+            android:textSize="24dp"
+            android:layout_marginTop="324dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"            />
+
+
+        <EditText
+
+            android:id="@+id/stateTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@id/stateLbl"
+            android:textColor="#FFFFFF"
+            android:inputType="textAutoCorrect"            />
+        <!-- This is the end of the state label and text field-->
+
+        <!-- This is the button to submit data, onClick method is located in Manual_Search Class-->
+        <Button
+
+            android:id="@+id/manualSearchBtn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RELOAD"
+            android:layout_below="@+id/stateTxtBox"
+            android:layout_centerHorizontal="true"
+            android:textColor="#00A0E9"
+            android:textSize="24dp"
+            android:background="#FFFFFF"
+
+            android:onClick="submitManualSearch"
+
+            />
+        />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
