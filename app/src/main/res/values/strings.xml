@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Bar_Locator</string>
 
+    <string name="Username">Username:</string>
+    <string name="Password">Password:</string>
+
+
     <string name="Address">Address:</string>
     <string name="City">City:</string>
     <string name="State">State:</string>
     <string name="action_settings">Settings</string>
+
+
 </resources>
