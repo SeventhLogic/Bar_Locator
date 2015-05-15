@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--
+        Don't forget to add the activities in the manifest so that it doesn't crash the program when you try to switch screens!!! =D
+        !-->
+        <activity
+            android:name=".Manual_Search"
+            android:label="Bar_Locator"
+            />
+
 
         <meta-data
             android:name="com.google.android.geo.AIzaSyAjKLtNZ5qIsRfI1OzA-VcfNw8Iqyp2PWM"
