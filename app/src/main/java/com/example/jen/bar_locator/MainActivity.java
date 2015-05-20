@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -16,6 +18,9 @@ import com.google.android.gms.location.places.Places;
 public class MainActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{//These needed to be added for the below Connection callbacks and such
 
     private GoogleApiClient mGoogleApiClient;
+
+    //Variables
+    String userID, userPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +52,16 @@ public class MainActivity extends Activity implements GoogleApiClient.Connection
 
 
     public void goToHomePage (View view){
-        Intent intent = new Intent(this, Manual_Search.class);
-        startActivity(intent);
-        this.isDestroyed();
+        //Intent intent = new Intent(this, Manual_Search.class);
+        //startActivity(intent);
+        //this.isDestroyed();
+        getUserIDMethod();
+    }
 
+    private void getUserIDMethod() {
+
+        userID = findViewById(R.id.userNameTxtBox).toString();
+        Toast.makeText(this, userID, Toast.LENGTH_LONG).show();
     }
 
 
