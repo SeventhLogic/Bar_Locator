@@ -41,7 +41,7 @@ public class MapActivity extends FragmentActivity
         addMarker();
     }
 
-
+    //http://stackoverflow.com/questions/14226453/google-maps-api-v2-how-to-make-markers-clickable
     private void createMapView()
     {
         try//a try catch to deal with map failing to load.
