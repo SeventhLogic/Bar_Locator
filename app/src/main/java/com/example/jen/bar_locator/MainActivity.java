@@ -24,9 +24,7 @@ public class MainActivity extends Activity {
     }
 
     public void displayMain_Activity(FragmentActivity fragmentActivity){
-        Intent intent = new Intent(this, Map_Activity.class);
-        startActivity(intent);
-        this.isDestroyed();
+        BlankFragment fragment = new
     }
     //public void goToHomePage (View view){
         //Intent intent = new Intent(this, MapActivity.class);
