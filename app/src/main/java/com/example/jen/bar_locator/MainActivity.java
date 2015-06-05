@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
                 if(isInserted == true)
                 {
                     Toast.makeText(MainActivity.this, "IT WORKED", Toast.LENGTH_LONG).show();
+
                 }
                 else
                 {
@@ -59,9 +60,9 @@ public class MainActivity extends Activity {
             }
         });
 
-        Intent intent = new Intent(this, MapActivity.class);
-        startActivity(intent);
-        this.isDestroyed();
+       // Intent intent = new Intent(this, MapActivity.class);
+        //startActivity(intent);
+        //this.isDestroyed();
 
     }
     @Override
