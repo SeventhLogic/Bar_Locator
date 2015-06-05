@@ -17,11 +17,12 @@ import com.google.android.gms.maps.GoogleMap;
 
 public class MainActivity extends Activity {
 
-
+    DatabaseHelper myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myDb = new DatabaseHelper(this);
     }
 
 //    public void displayMain_Activity(FragmentActivity fragmentActivity){
