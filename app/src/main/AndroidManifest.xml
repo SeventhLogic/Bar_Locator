@@ -51,7 +51,7 @@
             android:label="Bar_Locator"
             />
 
-        <activity android:name=".Map_Activity"
+        <activity android:name=".MapActivity"
             android:label="Map Page"
             />
 

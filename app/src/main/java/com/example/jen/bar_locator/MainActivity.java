@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -23,15 +24,15 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    public void displayMain_Activity(FragmentActivity fragmentActivity){
-        BlankFragment fragment = new
-    }
-    //public void goToHomePage (View view){
-        //Intent intent = new Intent(this, MapActivity.class);
-       // startActivity(intent);
-       // this.isDestroyed();
+//    public void displayMain_Activity(FragmentActivity fragmentActivity){
+//        //BlankFragment fragment = new
+//    }
+    public void goToHomePage (View view){
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        this.isDestroyed();
 
-   // }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
