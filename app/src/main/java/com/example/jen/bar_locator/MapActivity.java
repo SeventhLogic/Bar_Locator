@@ -68,25 +68,30 @@ public class MapActivity extends FragmentActivity
 
     private void addMarker()
     {
+        int radius = 1000;
+
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);//create a Location manager
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);//get last known location
         double longitude = location.getLongitude();//set longitude
         double latitude = location.getLatitude();//set latitude
-        LatLng latLng = new LatLng(latitude,longitude);
-        CameraUpdate camUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);//create an update for the camera
+        double dbLongitude = -105.0435580;
+        double dbLatitude = 39.9145310;
+        LatLng latLng = new LatLng(latitude,longitude);// add them into a single var so we can use camera stuffs
+        CameraUpdate camUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);//create an update for the camera (LatLng, zoom)
         mMap.animateCamera(camUpdate);//call the update when the marker is added to show your current location
+
 
         if(null != mMap)
         {
             mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(latitude, longitude))//make use of location manager to add marker at your location
-                    .title("Marker"));
+                    .position(new LatLng(dbLatitude, dbLongitude))//make use of location manager to add marker at your location
+                    .title("This be a bar"));
 
             //YAY FOR CIRCLES!
             CircleOptions circleOptions = new CircleOptions()
-                    //.fillColor(0xff0000ff)//blue...like REALLY BLUE
+                    //.fillColor(-16776961)//blue...like REALLY BLUE
                     .center(new LatLng(latitude, longitude))//create the circle around your current location
-                    .radius(1000);//size of circle meters
+                    .radius(radius);//size of circle meters
             Circle circle = mMap.addCircle(circleOptions);//call said circle
         }
     }
