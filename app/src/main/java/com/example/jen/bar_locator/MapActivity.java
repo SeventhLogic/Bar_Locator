@@ -86,7 +86,8 @@ public class MapActivity extends FragmentActivity
 
             //YAY FOR CIRCLES!
             CircleOptions circleOptions = new CircleOptions()
-                    .center(new LatLng(latitude,longitude))//create the circle around your current location
+                    .fillColor(0xff0000ff)//blue...like REALLY BLUE
+                    .center(new LatLng(latitude, longitude))//create the circle around your current location
                     .radius(1000);//size of circle meters
             Circle circle = mMap.addCircle(circleOptions);//call said circle
         }
