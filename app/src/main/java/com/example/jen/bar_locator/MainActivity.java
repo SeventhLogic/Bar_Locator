@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import com.google.android.gms.maps.SupportMapFragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -18,17 +20,45 @@ import com.google.android.gms.maps.GoogleMap;
 public class MainActivity extends Activity {
 
     DatabaseHelper myDb;
+    EditText userNameText, passwordText;
+    Button loginBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
+
+        userNameText = (EditText)findViewById(R.id.userNameTxtBox);
+        passwordText = (EditText)findViewById(R.id.passWordTxtBox);
+        loginBtn = (Button)findViewById(R.id.loginBtn);
     }
+
 
 //    public void displayMain_Activity(FragmentActivity fragmentActivity){
 //        //BlankFragment fragment = new
 //    }
     public void goToHomePage (View view){
+
+        loginBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View e)
+            {
+                boolean isInserted = myDb.insertData(userNameText.getText().toString(),
+                        passwordText.getText().toString());
+
+                if(isInserted == true)
+                {
+                    Toast.makeText(MainActivity.this, "IT WORKED", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "FAILURE", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         Intent intent = new Intent(this, MapActivity.class);
         startActivity(intent);
         this.isDestroyed();
