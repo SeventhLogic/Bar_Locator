@@ -80,7 +80,7 @@
             android:textSize="24dp"
             android:background="#FFFFFF"
 
-            android:onClick="displayMap_Activity"            />
+            android:onClick="goToHomePage"            />
     </RelativeLayout>
 
     <!-- This Layout is for social media log in-->
