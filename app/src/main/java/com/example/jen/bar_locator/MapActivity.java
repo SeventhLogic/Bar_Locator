@@ -9,9 +9,9 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;//these will be used later just trying to figure out the error checking stuff
-import com.google.android.gms.maps.internal.Point;
+//import com.google.android.gms.common.ConnectionResult;
+//import com.google.android.gms.common.GooglePlayServicesUtil;//these will be used later just trying to figure out the error checking stuff
+//import com.google.android.gms.maps.internal.Point;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -44,11 +44,6 @@ public class MapActivity extends FragmentActivity
         mMap.setMyLocationEnabled(true);
         addMarker();
 
-
-
-
-
-
     }
 
     //http://stackoverflow.com/questions/14226453/google-maps-api-v2-how-to-make-markers-clickable
@@ -77,6 +72,9 @@ public class MapActivity extends FragmentActivity
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);//get last known location
         double longitude = location.getLongitude();//set longitude
         double latitude = location.getLatitude();//set latitude
+        LatLng latLng = new LatLng(latitude,longitude);
+        CameraUpdate camUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);//create an update for the camera
+        mMap.animateCamera(camUpdate);//call the update when the marker is added to show your current location
 
         if(null != mMap)
         {
@@ -86,7 +84,7 @@ public class MapActivity extends FragmentActivity
 
             //YAY FOR CIRCLES!
             CircleOptions circleOptions = new CircleOptions()
-                    .fillColor(0xff0000ff)//blue...like REALLY BLUE
+                    //.fillColor(0xff0000ff)//blue...like REALLY BLUE
                     .center(new LatLng(latitude, longitude))//create the circle around your current location
                     .radius(1000);//size of circle meters
             Circle circle = mMap.addCircle(circleOptions);//call said circle
