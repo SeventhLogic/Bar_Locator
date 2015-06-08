@@ -25,8 +25,11 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         myDb = new DatabaseHelper(this);
 
         userNameText = (EditText)findViewById(R.id.userNameTxtBox);
@@ -60,9 +63,9 @@ public class MainActivity extends Activity {
             }
         });
 
-       // Intent intent = new Intent(this, MapActivity.class);
-        //startActivity(intent);
-        //this.isDestroyed();
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        this.isDestroyed();
 
     }
     @Override
