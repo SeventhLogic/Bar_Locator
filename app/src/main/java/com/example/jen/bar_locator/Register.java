@@ -31,7 +31,7 @@ public class Register extends Activity{
         secondID = (EditText)findViewById(R.id.checkUserIDTxtBox);
         firstPassword = (EditText)findViewById(R.id.registerPasswordTxtBox);
         secondPassword = (EditText)findViewById(R.id.checkPasswordTxtBox);
-        
+
 
         userOne = firstID.getText().toString();
         userTwo = secondID.getText().toString();
