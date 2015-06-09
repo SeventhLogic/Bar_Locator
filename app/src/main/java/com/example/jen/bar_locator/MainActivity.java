@@ -40,30 +40,29 @@ public class MainActivity extends Activity {
 //    }
     public void goToHomePage (View view){
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View e) {
+            public void onClick(View e)
+            {
                 boolean isInserted = myDb.insertData(userNameText.getText().toString(),
                         passwordText.getText().toString());
 
-                if (isInserted == true) {
+                if(isInserted == true)
+                {
                     Toast.makeText(MainActivity.this, "IT WORKED", Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else
+                {
                     Toast.makeText(MainActivity.this, "FAILURE", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
-        //Intent intent = new Intent(this, MapActivity.class);
-        //startActivity(intent);
-        //this.isDestroyed();
-
-    }
-
-    public void registerMethod (View view){
-        Intent intent = new Intent(this, Register.class);
+        Intent intent = new Intent(this, MapActivity.class);
         startActivity(intent);
         this.isDestroyed();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
