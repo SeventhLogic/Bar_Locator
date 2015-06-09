@@ -34,6 +34,13 @@ public class MainActivity extends Activity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
     }
 
+    public void registerMethod(View view)
+    {
+        Intent intent = new Intent(this, Register.class);
+        startActivity(intent);
+        this.isDestroyed();
+    }
+
 
 //    public void displayMain_Activity(FragmentActivity fragmentActivity){
 //        //BlankFragment fragment = new
