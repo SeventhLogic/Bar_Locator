@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00A0E9">
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerContentLayout"        >
+
+        <TextView
+            android:id="@+id/registerInfo"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:text="@string/registerInfo"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+
+            android:id="@+id/registerNameLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registerName"
+            android:textSize="24dp"
+            android:layout_marginTop="100dp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"            />
+
+        <EditText
+
+            android:id="@+id/registerTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@id/registerNameLbl"
+            android:textColor="#FFFFFF"
+            android:inputType="textWebEmailAddress"            />
+
+        <TextView
+            android:id="@+id/checkUserIDLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkID"
+            android:textSize="24dp"
+            android:layout_below="@+id/registerTxtBox"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            />
+
+        <EditText
+
+            android:id="@+id/checkUserIDTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@+id/checkUserIDLbl"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:inputType="textWebEmailAddress"/>
+
+        <TextView
+
+            android:id="@+id/registerPasswordLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Password"
+            android:textSize="24dp"
+            android:layout_below="@+id/checkUserIDTxtBox"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"            />
+
+
+        <EditText
+
+            android:id="@+id/registerPasswordTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@id/registerPasswordLbl"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:inputType="textWebEmailAddress"            />
+
+        <TextView
+
+            android:id="@+id/checkPasswordLbl"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkPass"
+            android:textSize="24dp"
+            android:layout_below="@+id/registerPasswordTxtBox"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <EditText
+
+            android:id="@+id/checkPasswordTxtBox"
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:layout_below="@+id/checkPasswordLbl"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:inputType="textWebEmailAddress"             />
+
+        <Button
+
+            android:id="@+id/registerBtn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@+id/checkPasswordTxtBox"
+            android:layout_centerHorizontal="true"
+            android:textColor="#00A0E9"
+            android:textSize="24dp"
+            android:background="#FFFFFF"
+
+            android:onClick="goToHomePage"            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -4,11 +4,15 @@
     <string name="Username">Username:</string>
     <string name="Password">Password:</string>
 
+    <string name="checkID">Insert username again:</string>
+    <string name="checkPass">Insert password again:</string>
 
     <string name="Address">Address:</string>
     <string name="City">City:</string>
     <string name="State">State:</string>
     <string name="action_settings">Settings</string>
+    <string name="registerName">Username:</string>
+    <string name="registerInfo">Please insert a Username (Email address) and a password. The password should contain at least 8 characters with a capital letter, number and a special character.</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
