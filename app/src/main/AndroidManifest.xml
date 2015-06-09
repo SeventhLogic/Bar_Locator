@@ -47,7 +47,11 @@
         Activates other than main
         -->
         <activity
-            android:name=".Manual_Search"
+        android:name=".Manual_Search"
+        android:label="Bar_Locator"
+        />
+        <activity
+            android:name=".Register"
             android:label="Bar_Locator"
             />
 

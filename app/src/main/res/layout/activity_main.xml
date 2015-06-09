@@ -75,50 +75,27 @@
             android:layout_height="wrap_content"
             android:text="ENTER"
             android:layout_below="@+id/passWordTxtBox"
-            android:layout_centerHorizontal="true"
+            android:layout_alignRight="@id/passWordTxtBox"
             android:textColor="#00A0E9"
             android:textSize="24dp"
             android:background="#FFFFFF"
 
             android:onClick="goToHomePage"            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:layout_below="@+id/passWordTxtBox"
+            android:layout_alignLeft="@id/passWordTxtBox"
+            android:textColor="#00A0E9"
+            android:textSize="24dp"
+            android:background="#FFFFFF"
+
+            android:onClick="registerMethod"/>
     </RelativeLayout>
 
-    <!-- This Layout is for social media log in-->
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/loginSocialMediaLayout"
-        android:layout_alignParentBottom="true"        >
 
-        <ImageButton
-
-            android:id="@+id/facebookBtn"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"            />
-
-        <ImageButton
-
-            android:id="@+id/twitterBtn"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"            />
-
-        <ImageButton
-
-            android:id="@+id/gmailBtn"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"            />
-
-
-
-
-
-    </RelativeLayout>
 
 
 
