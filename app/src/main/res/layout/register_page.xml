@@ -132,7 +132,7 @@
             android:textSize="24dp"
             android:background="#FFFFFF"
 
-            android:onClick="goToHomePage"            />
+            android:onClick="verifyInputs"            />
 
     </RelativeLayout>
 
