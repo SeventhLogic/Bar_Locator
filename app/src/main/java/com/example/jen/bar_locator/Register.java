@@ -17,6 +17,7 @@ public class Register extends Activity{
     EditText firstID, secondID, firstPassword, secondPassword;
     TextView registerTxt;
     Button registerBtn;
+    DatabaseHelper myDb;
 
 
     String userOne, userTwo, passOne, passTwo;
@@ -25,6 +26,8 @@ public class Register extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_page);
+
+        myDb = new DatabaseHelper(this);
 
         firstID = (EditText)findViewById(R.id.registerTxtBox);
         secondID = (EditText)findViewById(R.id.checkUserIDTxtBox);
@@ -48,21 +51,24 @@ public class Register extends Activity{
                 passOne = firstPassword.getText().toString();
                 passTwo = secondPassword.getText().toString();
 
-                if (userOne == userTwo){
-                    if (passOne == passTwo) {
-                        Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
-                        //Intent intent = new Intent(this, MainActivity.class);
-                        //startActivity(intent);
-                        //this.isDestroyed();
+                if (userOne.equals(userTwo)){
+                    if (passOne.equals(passTwo)) {
+                        //Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
+
+                        myDb.insertData(userOne, passOne);
+
+                        Intent intent = new Intent(Register.this, MainActivity.class);
+                        startActivity(intent);
+
                     }
                 }
-                else if (userOne != userTwo) {
+                else {
                     Toast.makeText(Register.this, "IDs or Passwords do not match, please try again" + firstID + secondID + firstPassword + secondPassword, Toast.LENGTH_LONG).show();
                     firstID.setText("");
                     secondID.setText("");
                     firstPassword.setText("");
                     secondPassword.setText("");
-                    registerTxt.setText(userOne + userTwo + passOne + passTwo);
+
                 }
 
             }
