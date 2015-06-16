@@ -14,6 +14,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 
 
 /**
@@ -29,7 +30,7 @@ public class MapActivity extends FragmentActivity
     //int duration = Toast.LENGTH_SHORT;
 
     //private static final int REQUEST_RESOLVE_ERROR = 1001;
-
+    Boolean isClicked = false;
     GoogleMap mMap;
 
     @Override
@@ -39,7 +40,8 @@ public class MapActivity extends FragmentActivity
         setContentView(R.layout.map_layout);
         createMapView();
         mMap.setMyLocationEnabled(true);
-        addMarker();
+        clickUpdate();
+        //addMarker();
 
     }
 
@@ -121,6 +123,21 @@ public class MapActivity extends FragmentActivity
             }
 
         }
+    }
+
+    private  void clickUpdate()
+    {
+
+
+        mMap.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener() {
+            @Override
+            public boolean onMyLocationButtonClick() {
+                addMarker();
+                Toast.makeText(getBaseContext(), "TRUE", Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
+
     }
 
 
