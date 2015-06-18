@@ -38,7 +38,7 @@
             android:textSize="24dp"
             android:layout_below="@id/userNameLbl"
             android:textColor="#FFFFFF"
-            android:inputType="textWebEmailAddress"            />
+            android:inputType="textWebEmailAddress|textEmailAddress"            />
 
         <TextView
 
@@ -65,7 +65,7 @@
             android:textSize="24dp"
             android:layout_below="@id/passWordLbl"
             android:textColor="#FFFFFF"
-            android:inputType="textWebEmailAddress"            />
+            android:inputType="textWebEmailAddress|textPassword"            />
 
         <Button
 
