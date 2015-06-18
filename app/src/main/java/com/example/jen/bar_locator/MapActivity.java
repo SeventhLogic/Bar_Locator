@@ -40,8 +40,7 @@ public class MapActivity extends FragmentActivity
         setContentView(R.layout.map_layout);
         createMapView();
         mMap.setMyLocationEnabled(true);
-        clickUpdate();
-        //addMarker();
+        addMarker();
 
     }
 
@@ -84,7 +83,7 @@ public class MapActivity extends FragmentActivity
         {
             boolean inCircle;
 
-            Marker marker = mMap.addMarker(new MarkerOptions()
+            final Marker marker = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(latitude, longitude))//make use of location manager to add marker at your location
                     .title("This be a bar"));
 
@@ -93,7 +92,7 @@ public class MapActivity extends FragmentActivity
                     //.fillColor(-16776961)//blue...like REALLY BLUE
                     .center(new LatLng(latitude, longitude))//create the circle around your current location
                     .radius(radius);//size of circle meters
-            Circle circle = mMap.addCircle(circleOptions);//call said circle
+            final Circle circle = mMap.addCircle(circleOptions);//call said circle
 
 
             //http://stackoverflow.com/questions/16082622/check-if-marker-is-inside-circle-radius
@@ -122,27 +121,19 @@ public class MapActivity extends FragmentActivity
                 marker.setVisible(true);
             }
 
+            mMap.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener() {
+                @Override
+                public boolean onMyLocationButtonClick() {
+                    marker.remove();
+                    circle.remove();
+                    addMarker();
+                    Toast.makeText(getBaseContext(), "TRUE", Toast.LENGTH_LONG).show();
+                    return true;
+                }
+            });
+
         }
     }
-
-    private  void clickUpdate()
-    {
-
-
-        mMap.setOnMyLocationButtonClickListener(new OnMyLocationButtonClickListener() {
-            @Override
-            public boolean onMyLocationButtonClick() {
-                addMarker();
-                Toast.makeText(getBaseContext(), "TRUE", Toast.LENGTH_LONG).show();
-                return true;
-            }
-        });
-
-    }
-
-
-
-
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
