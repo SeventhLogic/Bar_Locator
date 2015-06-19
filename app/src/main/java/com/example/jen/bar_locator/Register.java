@@ -70,6 +70,14 @@ public class Register extends Activity{
                         secondID.setText("");
 
                     }
+                else {
+                    Toast.makeText(Register.this, "IDs or Passwords do not match, please try again" + firstID + secondID + firstPassword + secondPassword, Toast.LENGTH_LONG).show();
+                    firstID.setText("");
+                    secondID.setText("");
+                    firstPassword.setText("");
+                    secondPassword.setText("");
+
+                }
 
             }
         });
