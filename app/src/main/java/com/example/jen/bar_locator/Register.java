@@ -56,13 +56,13 @@ public class Register extends Activity{
                         myDb.insertData(userOne, passOne);
                         newPageCloseThis();
                     }
-                    else{
+                    else if(userOne != userTwo){
                         Toast.makeText(Register.this, "Passwords do not match, please try again", Toast.LENGTH_LONG).show();
                         firstPassword.setText("");
                         secondPassword.setText("");
                     }
                 }
-                else {
+                else if(passOne != passTwo){
                     Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
                     firstID.setText("");
                     secondID.setText("");
