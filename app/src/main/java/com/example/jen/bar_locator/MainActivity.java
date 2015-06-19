@@ -35,8 +35,8 @@ public class MainActivity extends Activity {
         loginBtn = (Button)findViewById(R.id.loginBtn);
 
         BarInfo frag =  new BarInfo();
-        FragmentManager manager=getFragmentManager();
-        android.app.FragmentTransaction transaction=manager.beginTransaction();
+        FragmentManager manager = getFragmentManager();
+        android.app.FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.map,frag,"markerFragment");
     }
 
