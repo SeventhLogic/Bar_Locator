@@ -53,7 +53,10 @@ public class Register extends Activity{
 
                 if (userOne.equals(userTwo)){
                     if (passOne.equals(passTwo)) {
+                        //Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
+
                         myDb.insertData(userOne, passOne);
+<<<<<<< HEAD
                         newPageCloseThis();
                     }
                     else if(userOne != userTwo){
@@ -64,22 +67,37 @@ public class Register extends Activity{
                 }
                 else if(passOne != passTwo){
                     Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
+=======
+
+                        Intent intent = new Intent(Register.this, MainActivity.class);
+                        startActivity(intent);
+
+                    }
+                }
+                else {
+                    Toast.makeText(Register.this, "IDs or Passwords do not match, please try again" + firstID + secondID + firstPassword + secondPassword, Toast.LENGTH_LONG).show();
+>>>>>>> parent of a8ef2fc... random changes to database code, getting changes from laptop to desktop
                     firstID.setText("");
                     secondID.setText("");
+                    firstPassword.setText("");
+                    secondPassword.setText("");
 
                 }
-
 
             }
         });
 
+
+        //userOne = (EditText) findViewById(R.id.registerTxtBox).getText().toString();
+
+
+
+
+
+
     }
 
-    private void newPageCloseThis (){
-        Intent intent = new Intent(Register.this, MainActivity.class);
-        startActivity(intent);
-        this.isDestroyed();
-    }
+
 
 
 
