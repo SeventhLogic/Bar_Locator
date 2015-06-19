@@ -53,41 +53,35 @@ public class Register extends Activity{
 
                 if (userOne.equals(userTwo)){
                     if (passOne.equals(passTwo)) {
-                        //Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
 
                         myDb.insertData(userOne, passOne);
-                        //newPageCloseThis();
+                        newPageCloseThis();
                     }
-                    else if(userOne != userTwo){
+                    else if(userOne != userTwo || userOne.equals("")){
                         Toast.makeText(Register.this, "Passwords do not match, please try again", Toast.LENGTH_LONG).show();
                         firstPassword.setText("");
                         secondPassword.setText("");
                     }
                 }
-                else if(passOne != passTwo){
-                    Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
-
-
-                        Intent intent = new Intent(Register.this, MainActivity.class);
-                        startActivity(intent);
+                else if(passOne != passTwo || passOne.equals("")){
+                        Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
+                        firstID.setText("");
+                        secondID.setText("");
 
                     }
 
             }
         });
 
-
-        //userOne = (EditText) findViewById(R.id.registerTxtBox).getText().toString();
-
-
-
-
-
-
     }
 
-
-
+    private void newPageCloseThis() {
+        Intent intent = new Intent(Register.this, MainActivity.class);
+        startActivity(intent);
+        this.isDestroyed();
+        myDb.close();
+    }
 
 
 }
