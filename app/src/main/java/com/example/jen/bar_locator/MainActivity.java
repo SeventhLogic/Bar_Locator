@@ -1,8 +1,10 @@
 package com.example.jen.bar_locator;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -28,6 +30,12 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
+
+        BarInfo frag =  new BarInfo();
+        FragmentManager manager=getFragmentManager();
+        android.app.FragmentTransaction transaction=manager.beginTransaction();
+        transaction.add(R.id.map,frag,"markerFragment");
+
 
         userNameText = (EditText)findViewById(R.id.userNameTxtBox);
         passwordText = (EditText)findViewById(R.id.passWordTxtBox);

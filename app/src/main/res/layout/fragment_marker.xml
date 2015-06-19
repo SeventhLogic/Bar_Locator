@@ -6,6 +6,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id ="@+id/Information"
         android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

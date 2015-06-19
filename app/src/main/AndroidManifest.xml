@@ -58,9 +58,7 @@
         <activity android:name=".MapActivity"
             android:label="Map Page"
             />
-        <activity android:name=".BarInfo"
-            android:label="Desc Page"
-            />
+
 
         <!--
         Meta Data
