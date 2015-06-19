@@ -4,7 +4,6 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -134,9 +133,6 @@ public class MapActivity extends FragmentActivity
             });
 
         }
-    }
-    public void OnMarkerClick() {
-
     }
 
     @Override
