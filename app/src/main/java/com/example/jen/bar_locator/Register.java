@@ -1,18 +1,19 @@
 package com.example.jen.bar_locator;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
+        import android.app.Activity;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.EditText;
+        import android.widget.Button;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
 /**
  * Created by Brock on 6/9/2015.
  */
-public class Register extends Activity{
+public class Register extends Activity {
 
     EditText firstID, secondID, firstPassword, secondPassword;
     TextView registerTxt;
@@ -29,18 +30,18 @@ public class Register extends Activity{
 
         myDb = new DatabaseHelper(this);
 
-        firstID = (EditText)findViewById(R.id.registerTxtBox);
-        secondID = (EditText)findViewById(R.id.checkUserIDTxtBox);
-        firstPassword = (EditText)findViewById(R.id.registerPasswordTxtBox);
-        secondPassword = (EditText)findViewById(R.id.checkPasswordTxtBox);
-        registerTxt = (TextView)findViewById(R.id.registerInfo);
+        firstID = (EditText) findViewById(R.id.registerTxtBox);
+        secondID = (EditText) findViewById(R.id.checkUserIDTxtBox);
+        firstPassword = (EditText) findViewById(R.id.registerPasswordTxtBox);
+        secondPassword = (EditText) findViewById(R.id.checkPasswordTxtBox);
+        registerTxt = (TextView) findViewById(R.id.registerInfo);
 
-        registerBtn = (Button)findViewById(R.id.registerBtn);
+        registerBtn = (Button) findViewById(R.id.registerBtn);
 
 
     }
 
-    public void verifyInputs(View view){
+    public void verifyInputs(View view) {
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,31 +52,21 @@ public class Register extends Activity{
                 passOne = firstPassword.getText().toString();
                 passTwo = secondPassword.getText().toString();
 
-                if (userOne.equals(userTwo)){
+                if (userOne.equals(userTwo)) {
                     if (passOne.equals(passTwo)) {
                         Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
 
                         myDb.insertData(userOne, passOne);
                         newPageCloseThis();
-                    }
-                    else if(userOne != userTwo || userOne.equals("")){
+                    } else if (userOne != userTwo || userOne.matches("")) {
                         Toast.makeText(Register.this, "Passwords do not match, please try again", Toast.LENGTH_LONG).show();
                         firstPassword.setText("");
                         secondPassword.setText("");
                     }
-                }
-                else if(passOne != passTwo || passOne.equals("")){
-                        Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
-                        firstID.setText("");
-                        secondID.setText("");
-
-                    }
-                else {
-                    Toast.makeText(Register.this, "IDs or Passwords do not match, please try again" + firstID + secondID + firstPassword + secondPassword, Toast.LENGTH_LONG).show();
+                } else if (passOne != passTwo || passOne.matches("")) {
+                    Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
                     firstID.setText("");
                     secondID.setText("");
-                    firstPassword.setText("");
-                    secondPassword.setText("");
 
                 }
 
@@ -89,8 +80,7 @@ public class Register extends Activity{
         startActivity(intent);
         this.isDestroyed();
         myDb.close();
-        
+
     }
-
-
 }
+
