@@ -32,7 +32,6 @@ public class MainActivity extends Activity {
         userNameText = (EditText)findViewById(R.id.userNameTxtBox);
         passwordText = (EditText)findViewById(R.id.passWordTxtBox);
         loginBtn = (Button)findViewById(R.id.loginBtn);
-
     }
 
     public void registerMethod(View view)
@@ -48,31 +47,30 @@ public class MainActivity extends Activity {
 //    }
     public void goToHomePage (View view){
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View e) {
+            public void onClick(View e)
+            {
                 boolean isInserted = myDb.insertData(userNameText.getText().toString(),
                         passwordText.getText().toString());
 
-                if (isInserted == true) {
+                if(isInserted == true)
+                {
                     Toast.makeText(MainActivity.this, "IT WORKED", Toast.LENGTH_LONG).show();
-                    goToMapActivity();
-                } else {
+                }
+                else
+                {
                     Toast.makeText(MainActivity.this, "FAILURE", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
-    }
-
-    public void goToMapActivity()
-    {
-            Intent intent = new Intent(this, MapActivity.class);
-            startActivity(intent);
-            this.isDestroyed();
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        this.isDestroyed();
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
