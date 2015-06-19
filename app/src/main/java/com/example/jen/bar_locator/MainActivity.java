@@ -1,6 +1,7 @@
 package com.example.jen.bar_locator;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,6 +33,11 @@ public class MainActivity extends Activity {
         userNameText = (EditText)findViewById(R.id.userNameTxtBox);
         passwordText = (EditText)findViewById(R.id.passWordTxtBox);
         loginBtn = (Button)findViewById(R.id.loginBtn);
+
+        BarInfo frag =  new BarInfo();
+        FragmentManager manager=getFragmentManager();
+        android.app.FragmentTransaction transaction=manager.beginTransaction();
+        transaction.add(R.id.map,frag,"markerFragment");
     }
 
     public void registerMethod(View view)
