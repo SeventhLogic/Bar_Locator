@@ -81,6 +81,7 @@ public class Register extends Activity{
         startActivity(intent);
         this.isDestroyed();
         myDb.close();
+        
     }
 
 
