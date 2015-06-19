@@ -56,8 +56,7 @@ public class Register extends Activity{
                         //Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
 
                         myDb.insertData(userOne, passOne);
-<<<<<<< HEAD
-                        newPageCloseThis();
+                        //newPageCloseThis();
                     }
                     else if(userOne != userTwo){
                         Toast.makeText(Register.this, "Passwords do not match, please try again", Toast.LENGTH_LONG).show();
@@ -67,16 +66,14 @@ public class Register extends Activity{
                 }
                 else if(passOne != passTwo){
                     Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
-=======
+
 
                         Intent intent = new Intent(Register.this, MainActivity.class);
                         startActivity(intent);
 
                     }
-                }
                 else {
                     Toast.makeText(Register.this, "IDs or Passwords do not match, please try again" + firstID + secondID + firstPassword + secondPassword, Toast.LENGTH_LONG).show();
->>>>>>> parent of a8ef2fc... random changes to database code, getting changes from laptop to desktop
                     firstID.setText("");
                     secondID.setText("");
                     firstPassword.setText("");
