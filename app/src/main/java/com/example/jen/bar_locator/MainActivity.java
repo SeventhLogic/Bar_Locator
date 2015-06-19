@@ -20,9 +20,14 @@ import com.google.android.gms.maps.GoogleMap;
 
 public class MainActivity extends Activity {
 
+    ErrorCheck eCheck = new ErrorCheck();
     DatabaseHelper myDb;
     EditText userNameText, passwordText;
     Button loginBtn;
+
+    String userID, passWord;
+
+    //int tempVal = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +35,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
 
-        userNameText = (EditText)findViewById(R.id.userNameTxtBox);
-        passwordText = (EditText)findViewById(R.id.passWordTxtBox);
+
         loginBtn = (Button)findViewById(R.id.loginBtn);
 
         BarInfo frag =  new BarInfo();
         FragmentManager manager = getFragmentManager();
         android.app.FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.map,frag,"markerFragment");
+        transaction.add(R.id.map, frag, "markerFragment");
     }
 
     public void registerMethod(View view)
@@ -53,28 +57,20 @@ public class MainActivity extends Activity {
 //    }
     public void goToHomePage (View view){
 
-        loginBtn.setOnClickListener(new View.OnClickListener()
-        {
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View e)
-            {
-                boolean isInserted = myDb.insertData(userNameText.getText().toString(),
-                        passwordText.getText().toString());
+            public void onClick(View e) {
+                userNameText = (EditText) findViewById(R.id.userNameTxtBox);
+                passwordText = (EditText) findViewById(R.id.passWordTxtBox);
 
-                if(isInserted == true)
-                {
-                    Toast.makeText(MainActivity.this, "IT WORKED", Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "FAILURE", Toast.LENGTH_LONG).show();
-                }
+                checkUser();
+                checkPass();
+
+                checkComplete();
             }
         });
 
-        Intent intent = new Intent(this, MapActivity.class);
-        startActivity(intent);
-        this.isDestroyed();
+
 
     }
     @Override
@@ -97,5 +93,36 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public boolean checkUser () {
+        String tempID = userID;
+        tempID = eCheck.checkNull(tempID);
+        if (tempID.equals("N"))  {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+    }
+
+    public boolean checkPass () {
+        String tempID = passWord;
+        tempID = eCheck.checkNull(tempID);
+        if (tempID.equals("N"))  {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public void checkComplete () {
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+        //this.isDestroyed();
+        myDb.close();
     }
 }
