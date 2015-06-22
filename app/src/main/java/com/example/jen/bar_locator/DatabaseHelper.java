@@ -2,8 +2,10 @@ package com.example.jen.bar_locator;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Brock on 6/5/2015.
@@ -14,7 +16,6 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_NAME = "User_Table";
     public static final String COL_1 = "User_ID";
     public static final String COL_2 = "Password";
-
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -56,6 +57,22 @@ public class DatabaseHelper extends SQLiteOpenHelper{
             return true;
         }
 
+    }
+    public String[] getAppData()
+    {
+        String selectQuery = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+            String[] data = null;
+        if(cursor.moveToFirst())
+        {
+            do {
+
+            }while(cursor.moveToNext());
+        }
+        db.close();
+        return data;
     }
 
 }
