@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
 
 
         loginBtn = (Button)findViewById(R.id.loginBtn);
-        passwordText.setTransformationMethod(new AsteriskPasswordTransformationMetod());
+        //passwordText.setTransformationMethod(new AsteriskPasswordTransformationMetod());
 
         BarInfo frag =  new BarInfo();
         FragmentManager manager = getFragmentManager();
@@ -63,11 +64,22 @@ public class MainActivity extends Activity {
             public void onClick(View e) {
                 userNameText = (EditText) findViewById(R.id.userNameTxtBox);
                 passwordText = (EditText) findViewById(R.id.passWordTxtBox);
+                userID = userNameText.getText().toString();
+                passWord = passwordText.getText().toString();
 
-                checkUser();
-                checkPass();
-
-                checkComplete();
+                if ((!TextUtils.isEmpty(userID)) && (!TextUtils.isEmpty(passWord))) {
+                    userID = checkUser(userID);
+                    if (userID.equals("ahsdfg")) {
+                        Toast.makeText(getBaseContext(), "Please enter a valid Username", Toast.LENGTH_LONG).show();
+                    } else {
+                        passWord = checkPass(passWord);
+                        if (passWord.equals("ahsdfg")) {
+                            Toast.makeText(getBaseContext(), "Please enter a valid Password", Toast.LENGTH_LONG).show();
+                        } else if (!userID.equals("ahsdfg") && !passWord.equals("ahsdfg")) {
+                            checkComplete();
+                        }
+                    }
+                }
             }
         });
 
@@ -96,27 +108,27 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean checkUser () {
-        String tempID = userID;
-        tempID = eCheck.checkNull(tempID);
-        if (tempID.equals("N"))  {
-            return true;
+    public String checkUser (String xTempVal) {
+        String User = xTempVal;
+        User = myDb.getUserName(User);
+        if(User.equals("ahsdfg"))
+        {
+            return User;
         }
-        else{
-            return false;
+        else {
+            return User;
         }
-
-
     }
 
-    public boolean checkPass () {
-        String tempID = passWord;
-        tempID = eCheck.checkNull(tempID);
-        if (tempID.equals("N"))  {
-            return true;
+    public String checkPass (String xTempVal) {
+        String pass = xTempVal;
+        pass = myDb.getPassword(pass);
+        if(pass.equals("ahsdfg"))
+        {
+            return pass;
         }
-        else{
-            return false;
+        else {
+            return pass;
         }
     }
 

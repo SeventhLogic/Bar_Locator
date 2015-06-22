@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 /**
  * Created by Brock on 6/5/2015.
  */
@@ -58,21 +60,65 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         }
 
     }
-    public String[] getAppData()
-    {
-        String selectQuery = "SELECT * FROM " + TABLE_NAME;
-        SQLiteDatabase db = this.getReadableDatabase();
+    //http://stackoverflow.com/questions/18863816/putting-cursor-data-into-an-array
+    public String getUserName(String xTempVal){
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
-        Cursor cursor = db.rawQuery(selectQuery, null);
-            String[] data = null;
-        if(cursor.moveToFirst())
-        {
-            do {
+        cursor.moveToFirst();
 
-            }while(cursor.moveToNext());
+        ArrayList<String> names = new ArrayList<String>();
+
+        while(!cursor.isAfterLast()) {
+            names.add(cursor.getString(cursor.getColumnIndex(COL_1)));
+            cursor.moveToNext();
         }
-        db.close();
-        return data;
+        cursor.close();
+
+        names.toArray();
+
+        for(String s : names)
+        {
+            if(s.equals(xTempVal))
+            {
+                return s;
+            }
+            else
+            {
+                xTempVal = "ahsdfg";
+            }
+        }
+
+        return xTempVal;
+    }
+
+    public String getPassword(String xTempVal){
+        Cursor cursor = getReadableDatabase().rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        cursor.moveToFirst();
+
+        ArrayList<String> names = new ArrayList<String>();
+
+        while(!cursor.isAfterLast()) {
+            names.add(cursor.getString(cursor.getColumnIndex(COL_2)));
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        names.toArray();
+
+        for(String s : names)
+        {
+            if(s.equals(xTempVal))
+            {
+                return s;
+            }
+            else
+            {
+                xTempVal = "ahsdfg";
+            }
+        }
+
+        return xTempVal;
     }
 
 }

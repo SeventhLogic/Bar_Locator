@@ -20,15 +20,6 @@ public class ErrorCheck {
 
 
 
-    public String checkNull(String tempxval){
-        String stringCheck;
-        stringCheck = tempxval;
-        if(stringCheck.matches("")){
-            return "N";
-        }
-        return "G";
-    }
-
     public String checkUserID (String tempxval){
 
         return "F";
