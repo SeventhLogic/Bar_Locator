@@ -4,6 +4,7 @@ package com.example.jen.bar_locator;
         import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
+        import android.text.TextUtils;
         import android.view.View;
         import android.widget.EditText;
         import android.widget.Button;
@@ -61,22 +62,24 @@ public class Register extends Activity {
                 passOne = firstPassword.getText().toString();
                 passTwo = secondPassword.getText().toString();
 
-                if (userOne.equals(userTwo)) {
-                    if (passOne.equals(passTwo)) {
-                        Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
+                if((!TextUtils.isEmpty(userOne)) && (!TextUtils.isEmpty(userTwo)) && (!TextUtils.isEmpty(passOne)) && (!TextUtils.isEmpty(passTwo))) {
+                    if (userOne.equals(userTwo)) {
+                        if (passOne.equals(passTwo)) {
+                            Toast.makeText(Register.this, "Cleared", Toast.LENGTH_LONG).show();
 
-                        myDb.insertData(userOne, passOne);
-                        newPageCloseThis();
-                    } else if (userOne != userTwo || userOne.matches("")) {
-                        Toast.makeText(Register.this, "Passwords do not match, please try again", Toast.LENGTH_LONG).show();
-                        firstPassword.setText("");
-                        secondPassword.setText("");
+                            myDb.insertData(userOne, passOne);
+                            newPageCloseThis();
+                        } else if (userOne != userTwo || userOne.matches("")) {
+                            Toast.makeText(Register.this, "Passwords do not match, please try again", Toast.LENGTH_LONG).show();
+                            firstPassword.setText("");
+                            secondPassword.setText("");
+                        }
+                    } else if (passOne != passTwo || passOne.matches("")) {
+                        Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
+                        firstID.setText("");
+                        secondID.setText("");
+
                     }
-                } else if (passOne != passTwo || passOne.matches("")) {
-                    Toast.makeText(Register.this, "IDs do not match, please try again", Toast.LENGTH_LONG).show();
-                    firstID.setText("");
-                    secondID.setText("");
-
                 }
 
             }
