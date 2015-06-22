@@ -18,6 +18,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String TABLE_NAME = "User_Table";
     public static final String COL_1 = "User_ID";
     public static final String COL_2 = "Password";
+//    public static final String COL_3 = "LAT";
+//    public static final String COL_4 = "LNG";
+//    public static final String COL_5 = "Description";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -66,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         cursor.moveToFirst();
 
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
 
         while(!cursor.isAfterLast()) {
             names.add(cursor.getString(cursor.getColumnIndex(COL_1)));
@@ -96,7 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         cursor.moveToFirst();
 
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> names = new ArrayList<>();
 
         while(!cursor.isAfterLast()) {
             names.add(cursor.getString(cursor.getColumnIndex(COL_2)));
@@ -120,5 +123,37 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
         return xTempVal;
     }
+
+//    public Double getLATLNG(Double xTempVal){
+//        Cursor cursor = getReadableDatabase().rawQuery("SELECT * FROM " + TABLE_NAME, null);
+//
+//        cursor.moveToFirst();
+//
+//        ArrayList<Double> LAT = new ArrayList<>();
+//        ArrayList<Double> LNG = new ArrayList<>();
+//
+//        while(!cursor.isAfterLast()) {
+//            LAT.add(cursor.getDouble(cursor.getColumnIndex(COL_3)));
+//            LNG.add(cursor.getDouble(cursor.getColumnIndex(COL_4)));
+//            cursor.moveToNext();
+//        }
+//        cursor.close();
+//
+//        LAT.toArray();
+//        LNG.toArray();
+//
+//        for(Double s : LAT)
+//        {
+//            return s;
+//
+//        }
+//
+//        for(Double s : LNG)
+//        {
+//          return s;
+//        }
+//
+//        return xTempVal;
+//    }
 
 }
