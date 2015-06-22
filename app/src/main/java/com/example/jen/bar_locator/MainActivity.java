@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
 
 
         loginBtn = (Button)findViewById(R.id.loginBtn);
+        passwordText.setTransformationMethod(new AsteriskPasswordTransformationMetod());
 
         BarInfo frag =  new BarInfo();
         FragmentManager manager = getFragmentManager();

@@ -95,7 +95,7 @@
             android:layout_below="@id/registerPasswordLbl"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:inputType="textWebEmailAddress|textPassword"            />
+            android:inputType="textPassword"            />
 
         <TextView
 
@@ -119,7 +119,7 @@
             android:layout_below="@+id/checkPasswordLbl"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:inputType="textWebEmailAddress|textPassword"             />
+            android:inputType="textPassword"             />
 
         <Button
 

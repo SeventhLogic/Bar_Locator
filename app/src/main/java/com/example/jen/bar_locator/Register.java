@@ -21,6 +21,8 @@ public class Register extends Activity {
     DatabaseHelper myDb;
 
 
+
+
     String userOne, userTwo, passOne, passTwo;
 
     @Override
@@ -32,11 +34,18 @@ public class Register extends Activity {
 
         firstID = (EditText) findViewById(R.id.registerTxtBox);
         secondID = (EditText) findViewById(R.id.checkUserIDTxtBox);
+
         firstPassword = (EditText) findViewById(R.id.registerPasswordTxtBox);
+        firstPassword.setTransformationMethod(new AsteriskPasswordTransformationMetod());
+
         secondPassword = (EditText) findViewById(R.id.checkPasswordTxtBox);
+        secondPassword.setTransformationMethod(new AsteriskPasswordTransformationMetod());
+
         registerTxt = (TextView) findViewById(R.id.registerInfo);
 
         registerBtn = (Button) findViewById(R.id.registerBtn);
+
+
 
 
     }
