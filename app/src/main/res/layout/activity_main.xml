@@ -36,6 +36,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="24dp"
+            android:textStyle="bold"
             android:layout_below="@id/userNameLbl"
             android:textColor="#FFFFFF"
             android:inputType="textWebEmailAddress|textEmailAddress"            />
@@ -65,7 +66,7 @@
             android:textSize="24dp"
             android:layout_below="@id/passWordLbl"
             android:textColor="#FFFFFF"
-            android:inputType="textWebEmailAddress|textPassword"            />
+            android:inputType="textPassword"            />
 
         <Button
 
